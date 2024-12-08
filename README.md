@@ -24,3 +24,28 @@ When we save our change, automatically server is refreshed with new changes)
 - HTTPS mode
 - Tree Shaking - remove unused code
 - Different dev and prod bundle
+
+
+# Namaste Food
+
+/**
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search
+ * - Restaurant Container
+ *  - RestaurantCard
+ *    - Img
+ *    - Name of Restaurant,star rating , cuisine,delivery time ,etc
+ * Footer
+ * - CopyRight
+ * - Contact
+ * -Links
+ * - Address
+ */
+
+ # React Hooks
+ - Normal JS Utility functions
+ - useState() - Superpowerful state variables in react
+ - useEffect()
