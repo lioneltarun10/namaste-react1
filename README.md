@@ -49,3 +49,7 @@ When we save our change, automatically server is refreshed with new changes)
  - Normal JS Utility functions
  - useState() - Superpowerful state variables in react
  - useEffect()
+
+ # 2 types of Routing in web apps
+ - Client side Routing
+ - Server Side routing
