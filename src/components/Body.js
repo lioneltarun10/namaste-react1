@@ -3,6 +3,8 @@ import resObj from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Body = () => {
 
@@ -35,6 +37,13 @@ const fetchData = async () => {
 // if(listOfRestaurants.length === 0){
 //     return <Shimmer />
 // }
+
+const onlineStatus = useOnlineStatus()
+
+if(onlineStatus === false){
+    return <h1>Looks like you are Offline!! Please check your Internet Connection</h1>
+}
+
 
 console.log("body rendered");
 
