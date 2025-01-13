@@ -1,10 +1,11 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withPromotedLabel} from "./RestaurantCard";
 import resObj from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
+import User from "./User";
 
 const Body = () => {
 
@@ -15,8 +16,10 @@ const [filteredRestaurant,setFilteredRestaurant] = useState([])
 
 const [searchText,setSearchText] = useState("");
 
+const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
+
 useEffect(() => {
-    console.log("useEffect called");
+    // console.log("useEffect called");
     fetchData()
 },[])
 
@@ -25,7 +28,7 @@ const fetchData = async () => {
 
     const json = await data.json();
 
-    console.log(json);
+    // console.log(json);
 
     //optional chaining
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -44,8 +47,10 @@ if(onlineStatus === false){
     return <h1>Looks like you are Offline!! Please check your Internet Connection</h1>
 }
 
+const {loggedInUser,setUserName} = useContext(UserContext)
 
-console.log("body rendered");
+
+// console.log("body rendered");
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
@@ -79,7 +84,7 @@ console.log("body rendered");
                 // fILTER lOGIC HERE
  
                 const filteredList = listOfRestaurants.filter(
-                    (res) => res.info.avgRating > 4
+                    (res) => res.info.avgRating > 4.5
                 )
                 setListOfRestaurants(filteredList)
                 console.log(filteredList);
@@ -87,6 +92,13 @@ console.log("body rendered");
               }
               }
               >Top Rated Restaurants</button>
+              </div>
+
+
+              <div className="m-4 p-4 flex items-center">
+              <label>UserName : </label>
+              <input className="border border-black p-2" onChange={(e) => setUserName(e.target.value)} value={loggedInUser} />
+              
               </div>
 
             </div>
@@ -97,7 +109,22 @@ console.log("body rendered");
             { 
               
             filteredRestaurant.map(restaurant => (
-            <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id }><RestaurantCard resData={restaurant} /></Link>
+            <Link 
+            key={restaurant.info.id} 
+            to={"/restaurants/" + restaurant.info.id }>
+
+                {/* if the restaurant is promoted, then add a promoted label to it */}
+                
+                {
+                  restaurant.info.avgRating > 4.5? 
+                   <RestaurantCardPromoted resData={restaurant} /> 
+                   : 
+                   <RestaurantCard resData={restaurant} />
+                   
+                }
+                
+                
+            </Link>
             ))
 
             }
