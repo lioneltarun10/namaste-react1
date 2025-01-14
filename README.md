@@ -53,3 +53,12 @@ When we save our change, automatically server is refreshed with new changes)
  # 2 types of Routing in web apps
  - Client side Routing
  - Server Side routing
+
+
+ # Redux Toolkit
+ - Install @reduxjs/toolkit and react-redux
+ - Build our own store
+ - Connect our store to our app
+ - Slice (cartSlice)
+ - dispatch(action)
+ - Selector
