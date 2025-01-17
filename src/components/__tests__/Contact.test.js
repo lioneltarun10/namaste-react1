@@ -51,7 +51,7 @@ describe("Contact Us Page Test Cases", () => {
        // Querying
       const inputBoxes =  screen.getAllByRole("textbox")
       
-      console.log(inputBoxes);
+    //   console.log(inputBoxes);
        
    
       // Assertion
