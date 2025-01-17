@@ -62,3 +62,20 @@ When we save our change, automatically server is refreshed with new changes)
  - Slice (cartSlice)
  - dispatch(action)
  - Selector
+
+ # Types of testing (developer)
+ - Unit testing
+ - Integration testing
+ - End to End testing (e2e testing)
+
+ # Settign up Testing in our app
+- Install React Testing Library (from react testing library website)
+- Install Jest (from jest website)
+- Installed Babel dependencies (from jest website)
+- Configure Babel (from jest website)
+- Configure Parcel Config file to disable babel  transpilation (from parcel website)
+- Jest configuration
+- Install jsdom library (react testing library website)
+- Install @babel/preset-react to make JSX work in test cases. 
+- Include @babel/preset-react inside my babel config file.
+- Install npm i -D @testing-library/jest-dom 
