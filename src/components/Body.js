@@ -58,6 +58,7 @@ const {loggedInUser,setUserName} = useContext(UserContext)
               
               <div className="m-4 p-4">
                 <input 
+                data-testid = "searchInput"
                 type="text" 
                 className="border border-solid border-black" 
                 value={searchText}
@@ -86,7 +87,7 @@ const {loggedInUser,setUserName} = useContext(UserContext)
                 const filteredList = listOfRestaurants.filter(
                     (res) => res.info.avgRating > 4.5
                 )
-                setListOfRestaurants(filteredList)
+                setFilteredRestaurant(filteredList)
                 console.log(filteredList);
                 
               }

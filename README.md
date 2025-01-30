@@ -79,3 +79,12 @@ When we save our change, automatically server is refreshed with new changes)
 - Install @babel/preset-react to make JSX work in test cases. 
 - Include @babel/preset-react inside my babel config file.
 - Install npm i -D @testing-library/jest-dom 
+
+# Deployment
+
+- Signup on AWS
+- Launch Instance
+- chmod 400 <secret>.pem ( do on git bash)
+- connect to virtual machine using "ssh -i "FoodOrderingApp-secret.pem" ubuntu@ec2-13-232-133-75.ap-south-1.compute.amazonaws.com" command
+
+- Install node version 20.12.2 (same as local node version, otherwise errors will come)
