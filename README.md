@@ -88,3 +88,14 @@ When we save our change, automatically server is refreshed with new changes)
 - connect to virtual machine using "ssh -i "FoodOrderingApp-secret.pem" ubuntu@ec2-13-232-133-75.ap-south-1.compute.amazonaws.com" command
 
 - Install node version 20.12.2 (same as local node version, otherwise errors will come)
+- Git clone https://github.com/lioneltarun10/namaste-react1.git
+- Frontend STEPS
+  - npm install  -> installs the dependencies
+  - npm run build
+  - sudo apt update
+  - sudo apt install nginx
+  - sudo systemctl start nginx
+  - sudo systemctl enable nginx
+  - copy code from dist(build files) to /var/www/html/
+  - sudo scp -r dist/* /var/www/html/
+  - enable port :80 of your instamce
